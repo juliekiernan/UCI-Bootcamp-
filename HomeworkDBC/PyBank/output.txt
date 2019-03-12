@@ -1,3 +1,7 @@
 Financial Analysis
 ---------------------
-Total Months: 86Net Total: $38382578Average Change: $-2315.12Greatest Increase in Profits: 2/1/2012 ($1926159)Greatest Decrease in Losses: 9/1/2013 ($-2196167)
+Total Months: {str(total_months)}
+Net Total: ${str(net_pl)}
+Average Change: ${str(round(avg_change, 2))}
+Greatest Increase in Profits: str{entrydate}(${str(biggest_increase)})
+Greatest Decrease in Losses: str{worst_date}(${str(smallest_increase)})
