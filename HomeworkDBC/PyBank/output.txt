@@ -1,7 +1,0 @@
-Financial Analysis
----------------------
-Total Months: {str(total_months)}
-Net Total: ${str(net_pl)}
-Average Change: ${str(round(avg_change, 2))}
-Greatest Increase in Profits: str{entrydate}(${str(biggest_increase)})
-Greatest Decrease in Losses: str{worst_date}(${str(smallest_increase)})
