@@ -1,9 +1,0 @@
-import os
-import csv
-import datetime
-
-PyBankPath = os.path.join('..', "PyBank", "PyBank_HW2.csv")
-
-with open(PyBankPath, newline="") as PyBankData:
-    bankreader = csv.bankreader(PyBankData, delimiter="")
-    bankheader = next(bankreader)
