@@ -35,18 +35,15 @@ with open(PyBankPath, newline="") as PyBankData:
         profits.append(change)
         value = int(row[1])
 
-        # Total number of months in dataset
-        total_months += 1
-
         # Net total of P/L over entire period
         net_pl = net_pl + int(row[1])
 
-    # Greatest increase in profits
+    # biggest increase in profits
     biggest_increase = max(profits)
     pindex_values = profits.index(biggest_increase)
     entrydate = dates[pindex_values]
 
-    # Lowest increase in profits
+    # smallest increase in profits
     smallest_increase = min(profits)
     lindex_values = profits.index(smallest_increase)
     worst_date = dates[lindex_values]
@@ -66,11 +63,12 @@ print(f"Greatest Decrease in Losses: {worst_date} (${str(smallest_increase)})")
 # Exporting to .txt file
 output = open("output.txt", "w")
 
-output.write("Financial Analysis" +'\n')
-output.write("---------------------" +'\n')
-output.write(f"Total Months: " + "{str(total_months)}" + '\n')
-output.write(f"Net Total: " + "${str(net_pl)}" +  '\n' )
-output.write(f"Average Change: " + "${str(round(avg_change, 2))}" + '\n')
-output.write(f"Greatest Increase in Profits: " + "str{entrydate}" + "(${str(biggest_increase)})" +  '\n')
-output.write(f"Greatest Decrease in Losses: " + "str{worst_date}" + "(${str(smallest_increase)})" +  '\n')
 
+output.write("Financial Analysis" '\n')
+output.write("---------------------" '\n')
+output.write(f'Total Months: {str(total_months)}' '\n')
+output.write(f'Net Total: ${str(net_pl)}' '\n')
+output.write(f'Average Change: ${str(round(avg_change, 2))}' '\n')
+output.write(f'Greatest Increase in Profits: str{entrydate} (${str(biggest_increase)})' '\n')
+output.write(f'Greatest Decrease in Losses: str{worst_date} (${str(smallest_increase)})' '\n')
+output.close()
