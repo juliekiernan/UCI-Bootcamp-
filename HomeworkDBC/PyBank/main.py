@@ -35,21 +35,18 @@ with open(PyBankPath, newline="") as PyBankData:
         profits.append(change)
         value = int(row[1])
 
-        # Total number of months in dataset
-        total_months += 1
-
-        # Net total of "P/L over entire period"
+        # Net total of P/L over entire period
         net_pl = net_pl + int(row[1])
 
-    # Greatest increase in profits
-    greatest_increase = max(profits)
-    greatest_index = profits.index(greatest_increase)
-    greatest_date = dates[greatest_index]
+    # biggest increase in profits
+    biggest_increase = max(profits)
+    pindex_values = profits.index(biggest_increase)
+    entrydate = dates[pindex_values]
 
-    # Lowest increase in profits
-    greatest_decrease = min(profits)
-    worst_index = profits.index(greatest_decrease)
-    worst_date = dates[worst_index]
+    # smallest increase in profits
+    smallest_increase = min(profits)
+    lindex_values = profits.index(smallest_increase)
+    worst_date = dates[lindex_values]
 
     # Average change in "Profit/Losses between months over entire period"
     avg_change = sum(profits) / len(profits)
@@ -60,25 +57,18 @@ print("----------")
 print(f"Total Months: {str(total_months)}")
 print(f"Net Total: ${str(net_pl)}")
 print(f"Average Change: ${str(round(avg_change, 2))}")
-print(f"Greatest Increase in Profits: {greatest_date} (${str(greatest_increase)})")
-print(f"Greatest Decrease in Losses: {worst_date} (${str(greatest_decrease)})")
+print(f"Greatest Increase in Profits: {entrydate} (${str(biggest_increase)})")
+print(f"Greatest Decrease in Losses: {worst_date} (${str(smallest_increase)})")
 
 # Exporting to .txt file
 output = open("output.txt", "w")
 
-line1 = "Financial Analysis" +'\n'
-line2 = "---------------------"
-# line3 = str(f"Total Months: {str(total_months)}")
-# line4 = str(f"Net Total: ${str(net_pl)}")
-# line5 = str(f"Average Change: ${str(round(avg_change, 2))}")
-# line6 = str(f"Greatest Increase in Profits: {greatest_date} (${str(greatest_increase)})")
-# line7 = str(f"Greatest Decrease in Losses: {worst_date} (${str(greatest_decrease)})")
-# output.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4, line5, line6, line7))
 
-
-
-
-
-
-
-
+output.write("Financial Analysis" '\n')
+output.write("---------------------" '\n')
+output.write(f'Total Months: {str(total_months)}' '\n')
+output.write(f'Net Total: ${str(net_pl)}' '\n')
+output.write(f'Average Change: ${str(round(avg_change, 2))}' '\n')
+output.write(f'Greatest Increase in Profits: str{entrydate} (${str(biggest_increase)})' '\n')
+output.write(f'Greatest Decrease in Losses: str{worst_date} (${str(smallest_increase)})' '\n')
+output.close()
