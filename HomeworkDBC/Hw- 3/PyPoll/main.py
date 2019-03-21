@@ -37,6 +37,14 @@ with open(PyPollPath, newline="") as PyPollData:
         winning_candidate = candidates[index]
 
 #Display results
+output_text = (f'Election Results\n----------\nTotal Votes: {str(total_votes)}\n----------\n')
+print(output_text)
+# for i in range(len(candidates)):
+#     print(f"{candidates[i]}: {str(per_votes[i])} ({str(num_votes[i])})")
+# print("----------")
+# print(f"Winner: {winning_candidate}")
+# print("----------")
+
 print("Election Results")
 print("----------")
 print(f"Total Votes: {str(total_votes)}")

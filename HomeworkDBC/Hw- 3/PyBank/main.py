@@ -51,8 +51,19 @@ with open(PyBankPath, newline="") as PyBankData:
     # Average change in "Profit/Losses between months over entire period"
     avg_change = sum(profits) / len(profits)
 
-# Display/ Export to .txt file
-output = open("output.txt", "rw")
+# Display info
+print("Financial Analysis")
+print("----------")
+print(f"Total Months: {str(total_months)}")
+print(f"Net Total: ${str(net_pl)}")
+print(f"Average Change: ${str(round(avg_change, 2))}")
+print(f"Greatest Increase in Profits: {entrydate} (${str(biggest_increase)})")
+print(f"Greatest Decrease in Losses: {worst_date} (${str(smallest_increase)})")
+
+# Exporting to .txt file
+output = open("output.txt", "w")
+
+
 output.write("Financial Analysis" '\n')
 output.write("---------------------" '\n')
 output.write(f'Total Months: {str(total_months)}' '\n')
