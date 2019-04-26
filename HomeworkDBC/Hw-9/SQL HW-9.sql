@@ -156,13 +156,21 @@ OR (rating = "PG-13");
 
 -- 7e. Display the most frequently rented movies in descending order.
 select * from rental;
-
+SELECT count (r.inventory_id) AS "Number of Times Rented"
+	FROM rental r
+	JOIN film_text ft
+	ON (ft.rental_id = r.rental_id)
+	JOIN inventory i
+	ON (i.inventory_id = r.inventory_id)
+	JOIN film_text ft
+	ON (s.store_id = i.store_id)
+	group by r.inventory_id
+	order by count(r.inventory_id) desc;
+    
 select rental_date, rental_date, inventory_id, count(inventory_id) as "Number of Times Rented"
-from rental
-group by inventory_id
-order by ("Number of Times Rented") desc;
- 
-  join payment p
+from rental;
+group by inventory_id;
+join payment p
  on (p.rental_id = r.rental_id)
  
  -- 7f. Write a query to display how much business, in dollars, each store brought in.
@@ -176,4 +184,49 @@ SELECT s.store_id, SUM(amount) AS Gross
 	JOIN store s
 	ON (s.store_id = i.store_id)
 	GROUP BY s.store_id;
-    
+
+-- 7g. Write a query to display for each store its store ID, city, and country.
+select s.store_id, c.city, co.country 
+from city c
+join address a
+on c.city_id = a.city_id
+join store s
+on s.address_id = a.address_id
+join country co
+on co.country_id = c.country_id;
+
+-- -------------------
+-- 7h. List the top five genres in gross revenue in descending order. 
+-- (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
+select c.name, fc.film_id, fc.category_id, p.amount, i.inventory_id, sum(p.amount) as "Gross Revenue for Category"
+from category c
+join film_category fc
+on fc.category_id = c.category_id
+join inventory i
+on i.film_id = fc.film_id
+join rental r
+on r. inventory_id = i.inventory_id
+join payment p
+on p.rental_id = r.rental_id
+group by c.name
+order by (p.amount) desc;
+
+-- In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. 
+-- Use the solution from the problem above to create a view. 
+create view Top_Five_genre_by_gross_revenue as
+select c.name, fc.film_id, fc.category_id, p.amount, i.inventory_id, sum(p.amount) as "Gross Revenue for Category"
+from category c
+join film_category fc
+on fc.category_id = c.category_id
+join inventory i
+on i.film_id = fc.film_id
+join rental r
+on r. inventory_id = i.inventory_id
+join payment p
+on p.rental_id = r.rental_id
+group by c.name
+order by (p.amount) desc;
+
+select * from Top_Five_genre_by_gross_revenue;
+drop view Top_Five_genre_by_gross_revenue;
+
