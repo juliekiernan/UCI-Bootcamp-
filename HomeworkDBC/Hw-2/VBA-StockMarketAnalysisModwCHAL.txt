@@ -1,0 +1,56 @@
+Sub StockAnalysisModerate()
+
+Dim ws As Worksheet
+For Each ws In ActiveWorkbook.Sheets
+
+  ' Set an initial variable for holding the ticker symbol
+  Dim Ticker As String
+
+  ' Set an initial variable for holding the total per Stock Volume total
+  Dim StockVTotal As Double
+  StocVTotal = 0
+
+  ' Keep track of the location for each credit card brand in the summary table
+  Dim SumTableRow As Integer
+  SumTableRow = 2
+
+  ' Loop through all ticker volumes
+  lastrow = Cells(Rows.Count, 1).End(xlUp).Row
+  For i = 2 To lastrow
+
+    ' Check if we are still within the same ticker, if it is not...
+    If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+
+      ' Set the Ticker Symbl
+      Ticker = ws.Cells(i, 1).Value
+
+      ' Add to the Stock Volume Total
+      StocVTotal = StocVTotal + ws.Cells(i, 11).Value
+
+      ' Print the Ticker Symbol in the Summary Table
+      ws.Range("j" & SumTableRow).Value = Ticker
+
+      ' Print the stoc volume total to the Summary Table
+      ws.Range("k" & SumTableRow).Value = StocVTotal
+     
+
+      ' Add one to the summary table row
+      SumTableRow = SumTableRow + 1
+      
+      ' Reset the Brand Total
+      StocVTotal = 0
+
+    ' If the cell immediately following a row is the same ticker...
+    Else
+
+      ' Add to the Brand Total
+      StocVTotal = StocVTotal + Cells(i, 11).Value
+        'Add Column headers
+        ws.Range("J1") = "Ticker"
+        ws.Range("M1") = "Total Stock Volume"
+        ws.Range("K1") = "Yearly Change"
+        ws.Range("L1") = "Percent Change"
+        Columns(11).AutoFit
+        Columns (13).AutoFit
+        
+    End If

@@ -1,0 +1,57 @@
+Sub StockMarketAnalysisEasy()
+
+'Dim ws As Worksheet
+'Dim ws_count as Integer
+'ws_count = ActiveWorkbooks.worksheets.count
+for ws_count = 1 to ActiveWorkbook.sheets.Value
+For I = 1 To WS_Count
+
+    For Each ws In ActiveWorkbook
+        ws.Range("I1").Value = "Ticker"
+        ws.Range("J1").Value = "Total Stock Volume"
+    
+        'name of stock in summary table
+        Dim Ticker As String
+    
+        'sum of stock volume 
+        Dim Total_Stock_Volume As double
+        Total_Stock_Volume = 0
+    
+        Dim Summay_Table_Row As Integer
+        Summary_Table_Row = 2
+    
+        lastrow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+  
+        'loop though all ticker symbols
+            For i = 2 To lastrow
+                'checkif still same ticker symbol, if not...
+                If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+                'set ticker name
+                Ticker = ws.Cells(i, 1).Value
+           
+                'add to stock volume total
+                Total_Stock_Volume = Total_Stock_Volume + ws.Cells(i, 7).Value
+
+                'print name of ticker symbol in summary table
+                Range("i" & Summary_Table_Row).Value = Ticker
+        
+                'print stock volume total in summary table
+                Range("j" & Summary_Table_Row).Value = Total_Stock_Volume
+        
+                'add one to the summay table row
+                Summary_Table_Row = Summary_Table_Row + 1
+    
+                'reset stock volume total
+                Total_Stock_Volume = 0
+ 
+            'if cell immediately followng a row is the same brand
+        Else
+        'add to stock volume
+        Total_Stock_Volume = Total_Stock_Volume + ws.Cells(i, 7).Value
+        End If
+    Next i
+Next ws  
+Next ws_count
+
+End Sub
+
