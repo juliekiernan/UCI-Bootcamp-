@@ -1,0 +1,97 @@
+/* Giving the body the specified background color, adding font sizes for the h1 and h3 elements we'll be using */
+html {
+  /* Positioning */
+  position: relative;
+
+  /* Box-model */
+  min-height: 100%;
+}
+
+body {
+  background:lavender;
+}
+
+@media (max-width: 480px) {
+  background-color: white;
+  }
+
+h1 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+/* Giving our navbar some padding and a background color */
+.navbar {
+  color: white;
+}
+
+#nav{
+  padding: 10px;
+  color: white;
+  background: #0099cc;
+  font-size: 30px;
+}
+
+/* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+.navbar navbar-default li {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  background:white;
+  border-radius: 10px;
+}
+
+/* Getting rid of the default link styles here */
+.navbar li a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Styling the header, giving it a height, a background color, and some top padding */
+.header {
+  height: 80px;
+  padding-top: 20px;
+  background-color:lavender;
+}
+
+/* Centering our h1 tag inside our header, giving it a little padding, removing its margin */
+.header h1 {
+  padding: 15px;
+  margin: 0;
+  color: white;
+  text-align: right;
+}
+
+/* Giving the .post element margin on 3 sides */
+.post {
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+div.relative {
+  position: relative;
+  left: 30px;
+  border: 3px solid #73AD21;
+}
+
+.footer {
+  background-color: #383838;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+#Nav-area{
+  width: 100%;
+  padding: 20px 20px 20px;
+  background-color: lavender
+}
+.Nav-photo{
+  width: 200px;
+  height: 200px;
+}

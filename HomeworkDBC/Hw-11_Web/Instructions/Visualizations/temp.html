@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HW11-Web-temp</title>
+   
+  <!-- Boostrap Stylesheet -->
+  <link rel="stylesheet" href="../bootstrap.min.css" media="screen">
+   <!-- CSS stylesheet -->
+  <link rel="stylesheet" type="text/css" href="../reset.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+  <nav class = "navbar navbar-default">
+      <div class = "container-fluid"> 
+        <div class = "navbar-header">
+          <a class="navbar-brand" href="../index.html">Latitude</a>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Plots <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="temp.html">Max Temp</a></li>
+                  <li><a href="humidity.html">Humidity</a></li>
+                  <li><a href="cloudiness.html">Cloudiness</a></li>
+                  <li><a href="windspeed.html">Windspeed</a></li> 
+              </ul>      
+          <li><a href="../comparison.html">Comparison</a></li>
+          <li><a href="../data.html">Data</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- images -->
+  <div class = "container-fluid"></div>
+    <div class="col-sm-8" style="background-color:lavender;">
+      <article class = "description-content">
+          <h1 class = "description-header">Max Temperature</h1>
+          <img src="../Resources/assets/images/Fig1.png" alt="Max Temp">
+          <p> Temperature rises as one gets closer to the equator as would be expected. In addition, between 20-40 deg latitude, the temperature contrasts between warmer temps and colder temps indicates a tilt of the earth's axis. </p>
+          </article>
+    </div>
+
+    <div class="col-sm-4" style="background-color:lavender;">
+        <section id="Nav-area">
+          <h1 class="header">Visualizations</h1>
+          <hr />
+          <div id="images">
+            <a href="temp.html"><img src="../Resources/assets/images/Fig1.png" alt="Latitude vs. Max Temperature" class="Nav-photo"></a>
+            <a href="humidity.html"><img src="../Resources/assets/images/Fig2.png" alt="Latitude vs. Humidity" class="Nav-photo"></a>
+            <a href="cloudiness.html"><img src="../Resources/assets/images/Fig3.png" alt="Latitude vs. Cloudiness" class="Nav-photo"></a>
+            <a href="windspeed.html"><img src="../Resources/assets/images/Fig4.png" alt="Latitude vs. Wind Speed" class="Nav-photo"></a>
+         
+          </div>  
+        </section>
+      </div>
+      <!-- footer -->
+  <div class = "container-fluid"></div>
+    <div class = "footer">
+      <p>! This project was really hard for me !</p>
+    </div>
+  </div>
+   <!-- javascript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
