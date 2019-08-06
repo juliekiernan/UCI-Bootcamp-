@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars-HW 12-Web Scraping and Mongo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+    </div>
+    </br>
+      <!-- Latest news-->
+    <div class="container">
+        <div class="row", id="news">
+        <h2>Latest News from Mars!</h2>
+        <h4 class="news-heading">{{mars.news_title}}</h4>
+        <p>{{mars.news_paragraph}}</p>
+         </div>
+    <!-- Feat. image-->
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel-body">
+                <div class="row" id="featured_image">
+                    <div class="col-md-8">
+                        <h2>Featured Mars Image</h2>
+                        <img src = "{{mars.featured_image}}" class="img-responsive"  alt="featured image">
+                    </div>
+                     <!-- Mars Weather -->
+                    <div class="col-md-4">
+                        <div class="panel-body"></div>
+                            <h4>Mars: Current Weather </h4>
+                            <p>{{mars.weather}}</p>                        
+                        </div>
+                    </div>   
+                    <!-- Mars Facts -->
+                    <div class="col-md-4">
+                        <div class="panel-body"></div>
+                            <h3 class= "text-center">Mars Facts</h3> 
+                            <div class = "table-responsive">
+                                    <table border="1" class="dataframe">
+                                           <thead>
+                                             <tr style="text-align: right;">
+                                               <th></th>
+                                               <th>Mars - Earth Comparison</th>
+                                               <th>Mars</th>
+                                               <th>Earth</th>
+                                             </tr>
+                                           </thead>
+                                           <tbody>
+                                             <tr>
+                                               <th>0</th>
+                                               <td>Diameter:</td>
+                                               <td>6,779 km</td>
+                                               <td>12,742 km</td>
+                                             </tr>
+                                             <tr>
+                                               <th>1</th>
+                                               <td>Mass:</td>
+                                               <td>6.39 � 10^23 kg</td>
+                                               <td>5.97 � 10^24 kg</td>
+                                             </tr>
+                                             <tr>
+                                               <th>2</th>
+                                               <td>Moons:</td>
+                                               <td>2</td>
+                                               <td>1</td>
+                                             </tr>
+                                             <tr>
+                                               <th>3</th>
+                                               <td>Distance from Sun:</td>
+                                               <td>227,943,824 km</td>
+                                               <td>149,598,262 km</td>
+                                             </tr>
+                                             <tr>
+                                               <th>4</th>
+                                               <td>Length of Year:</td>
+                                               <td>687 Earth days</td>
+                                               <td>365.24 days</td>
+                                             </tr>
+                                             <tr>
+                                               <th>5</th>
+                                               <td>Temperature:</td>
+                                               <td>-153 to 20 �C</td>
+                                               <td>-88 to 58�C</td>
+                                             </tr>
+                                           </tbody>
+                                   </table>
+                               </br>
+                </div>
+            </div>
+        </div>
+         <!-- Mars Hemispheres -->
+        <div class="row" id="mars-hemispheres">
+            <div class="col-md-12">
+              <h2 class="text-center">Mars Hemispheres</h2>
+                <div class="col-md-6">
+                  <div class="thumbnail">
+                      <img src= "{{mars.hemispheres}}" alt="Hemispheres of Mars">
+                      <img src= "{{mars.hemispheres}}" alt="Hemispheres of Mars">
+                      <img src= "{{mars.hemispheres}}" alt="Hemispheres of Mars">
+                      <img src= "{{mars.hemispheres}}" alt="Hemispheres of Mars">
+                    <div class="caption">
+                        <h3>{{hemisphere.title}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>                  
+            </div>  
+        
+
+    </div>
+  </body>
+  </html>
